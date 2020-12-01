@@ -20,6 +20,8 @@ function createAnimal()
 		$is_neutered = $_POST["is_neutered"]
 		$shelter_id = $_POST["shelter_id"]
 
+		// TODO: Data validation
+
 		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 		$sql = 'INSERT INTO Animal (species_id, dob, sex, name, availability, is_neutered, in_shelter, shelter_id, provider_id) ';
 		$sql = $sql . 'VALUES ("'.$species_id . '","' . $dob . '","' . $sex . '","' . $name . '","' . $availability . '","' . $is_neutered . '","' . 'True' . '",' . $shelter_id . ',' . 1 . ');';
@@ -105,6 +107,45 @@ function getShelters()
 
 }
 
-function
+function updateAnimal()
+{
+	try{
+		$animal_id = $_POST['animal_id'];
+		$shelter_id = $_POST['shelter_id'];
+		$provider_id = $_POST['provider_id'];
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$phone_number = $_POST['phone_number'];
+		$address = $_POST['address'];
+		$city = $_POST['city'];
+		$state = $_POST['state'];
+		$zip_code = $_POST['zip_code'];
+
+		// TODO: Data validation
+
+		// Update Animal table
+		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+		$sql = 'UPDATE Animal SET availability=' . '"False"' . ',' . 'provider_id="' . $provider_id . '" ' . 'in_shelter=' . '"False"' . ' WHERE animal_id=' . $animal_id . ';';
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$pdo->exec($sql);
+
+		// Create new Provider entry
+		$sql = 'INSERT INTO Provider (provider_id, provider_type, location_id, shelter_id, name, email, phone_number) VALUES ()';
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$pdo->exec($sql);
+
+    	// Create entry in event log table
+    	$sql = 'INSERT INTO Event_Log (animal_id, event_type, description, location_id) VALUES (' . $animal_id . ',"' . 'Adoption' . '","' . 'Adopted' . '",' . $location_id . ');';
+		$pdo->exec($sql);
+		echo "New record created successfully";
+		return True;
+
+
+	}catch(PDOException $e)
+	{
+	    die("Could not connect to the database $dbname :" . $e->getMessage());
+	    return NULL;
+	}
+}
 
 ?>
