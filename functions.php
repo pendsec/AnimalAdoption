@@ -130,7 +130,7 @@ function updateAnimal()
 		$pdo->exec($sql);
 
 		// Create new Provider entry
-		$sql = 'INSERT INTO Provider (provider_id, provider_type, location_id, shelter_id, name, email, phone_number) VALUES ()';
+		$sql = 'INSERT INTO Provider (provider_id, provider_type, location_id, shelter_id, name, email, phone_number) VALUES (' . $provider_id . ',"' . 'Adoption' . '",' . $location_id . ',' . $shelter_id . ',"' . $name . '","' . $email . '","' . $phone_number . '");';
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$pdo->exec($sql);
 
@@ -144,6 +144,123 @@ function updateAnimal()
 	}catch(PDOException $e)
 	{
 	    die("Could not connect to the database $dbname :" . $e->getMessage());
+	    return NULL;
+	}
+}
+
+function requestFoster()
+{
+	try{
+		$animal_id = $_POST['animal_id'];
+		$shelter_id = $_POST['shelter_id'];
+		$provider_id = $_POST['provider_id'];
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$phone_number = $_POST['phone_number'];
+		$address = $_POST['address'];
+		$city = $_POST['city'];
+		$state = $_POST['state'];
+		$zip_code = $_POST['zip_code'];
+
+		// TODO: Data validation
+
+		// Update Animal table
+		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+		$sql = 'UPDATE Animal SET availability=' . '"False"' . ',' . 'provider_id="' . $provider_id . '" ' . 'in_shelter=' . '"False"' . ' WHERE animal_id=' . $animal_id . ';';
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$pdo->exec($sql);
+
+		// Create new Provider entry
+		$sql = 'INSERT INTO Provider (provider_id, provider_type, location_id, shelter_id, name, email, phone_number) VALUES (' . $provider_id . ',"' . 'Foster Family' . '",' . $location_id . ',' . $shelter_id . ',"' . $name . '","' . $email . '","' . $phone_number . '");';
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$pdo->exec($sql);
+
+    	// Create entry in event log table
+    	$sql = 'INSERT INTO Event_Log (animal_id, event_type, description, location_id) VALUES (' . $animal_id . ',"' . 'Fostered' . '","' . 'Fostered' . '",' . $location_id . ');';
+		$pdo->exec($sql);
+		echo "New record created successfully";
+		return True;
+
+
+	}catch(PDOException $e)
+	{
+	    die("Could not connect to the database $dbname :" . $e->getMessage());
+	    return NULL;
+	}
+}
+
+function getAnimalHistory()
+{
+	try{
+		$animal_id = $_POST['animal_id'];
+
+		// Check if date filter is set
+		if !(isset($_POST['date_from']) && isset($_POST['date_to']))
+		{
+			// TODO: Data validation
+
+			// Get animal location history
+			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+			$sql = ''; // TODO
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$q = $pdo->query($sql);
+	    	$q->setFetchMode(PDO::FETCH_ASSOC);
+			return $q;
+		}
+
+		// Filter events by date
+		$date_from = $_POST['date_from'];
+		$date_to = $_POST['date_to'];
+
+		// Get animal location history by date
+		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+		$sql = ''; // TODO
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$q = $pdo->query($sql);
+    	$q->setFetchMode(PDO::FETCH_ASSOC);
+		return $q;
+	} catch(PDOException $e)
+	{
+	    die("Could not connect to the database $dbname :" . $e->getMessage());
+	    return NULL;
+	}
+}
+
+function getAnimalMedicalHistory()
+{
+	try{
+		$animal_id = $_POST['animal_id'];
+
+		// Check if date filter is set
+		if !(isset($_POST['date_from']) && isset($_POST['date_to']))
+		{
+			// TODO: Data validation
+
+			// Get animal medical history
+			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+			$sql = ''; // TODO
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$q = $pdo->query($sql);
+	    	$q->setFetchMode(PDO::FETCH_ASSOC);
+			return $q;
+		}
+
+		// TODO: Data validation
+
+		// Filter by dates
+		$date_from = $_POST['date_from'];
+		$date_to = $_POST['date_to'];
+
+		// Get animal medical history by date
+		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+		$sql = ''; // TODO
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$q = $pdo->query($sql);
+    	$q->setFetchMode(PDO::FETCH_ASSOC);
+		return $q;
+	} catch(PDOException $e)
+	{
+    	die("Could not connect to the database $dbname :" . $e->getMessage());
 	    return NULL;
 	}
 }
