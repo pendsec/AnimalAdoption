@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+
+:root {
+    --dark-blue: #6699CC; /*background & font*/
+    --login-color: #4197EE;
+    --blue:#67B0F8;  /*label chosen*/
+    --light-blue: #99CCFF;   /*label not chosen*/
+    --button-color: #FFCC99;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nerko One";
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-blue);
+    padding: 80px;
+}
+
+#navi {
+    width: 80%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+#navi .option button{
+    width: 40%;
+    height: 70px;
+    border-radius: 15px;
+    margin: 25px;
+    font-size: 40px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+}
+
+#navi .option button:hover {
+    background-color: var(--light-blue);
+    cursor: pointer;
+}
+
+

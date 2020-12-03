@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+
+:root {
+    --dark-blue: #6699CC; /*background & font*/
+    --login-color: #4197EE;
+    --blue:#67B0F8;  /*label chosen*/
+    --light-blue: #99CCFF;   /*label not chosen*/
+    --button-color: #FFCC99;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nerko One";
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-blue);
+    padding: 80px;
+    position: relative;
+}
+
+#title {
+    color: white;
+    font-size: 40px;
+}
+
+#pic-window {
+    width: 85%;
+    margin: 30px auto;
+}
+
+#label {
+    border-bottom: 2px solid var(--light-blue);
+    text-align: center;
+}
+
+#label button {
+    color: white;
+    letter-spacing: 3px;
+    width: 400px;
+    height: 40px;
+    font-size: 25px;
+    font-family: "Ranchers";
+    font-weight: bold;
+    border: none;
+    border-radius: 15px 15px 0 0;
+    margin: 0 10px 0 10px;
+    background-color: var(--light-blue);
+    cursor: pointer;
+}
+
+#label button:hover {
+    background-color: var(--blue);
+}
+
+#label .selected {
+    background-color: var(--blue);
+}
+
+#pic {
+    height: 620px;
+    overflow-y: scroll;
+    background-color: white;
+    padding: 20px;
+}
+
+
+#contact {
+    display: none; 
+}
+
+#pic button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#pic button:hover {
+    background-color: #f3ae69;
+    cursor: pointer;
+}
+
+#logo{
+    width: 150px;
+    height: 150px;
+    background: url(../icons/dog.svg) no-repeat;
+    background-size: cover;
+    display: inline-block;
+    position: absolute;
+    top: 50px;
+    right: 25px;
+}
+
+.back {
+    width: 90px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.back:hover {
+    background-color: #ccc;
+}
+
+.back span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../icons/arrow.png) no-repeat;
+    background-size: cover;
+    margin-right: 5px;
+}
+
+#describe {
+    width: 100%;
+    /* background-color: pink; */
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#describe img {
+    width: 40%;
+    height: 300px;
+    /* background-color: powderblue; */
+}
+
+#text {
+    width: 60%;
+    height: 450px;
+    /* background-color: rosybrown; */
+}
+
+#text p {
+    /* background-color:cadetblue; */
+    height: 80%;
+    text-align: justify;
+    padding: 10px;
+}
+
+#btn button{
+    width: 20%;
+    float: left;
+    margin-left: 70px;
+}
