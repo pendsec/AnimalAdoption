@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="../CSS/homepage.css">
+</head>
+<body>
+    <div id="title">Find Your Fluffy Friend Today!~</div>
+    <div id="pic"></div>
+    <div id="navi">
+        <div class="option"><a href="../html/adopter.html"><button id="adopt">I want to adopt</button></a></div>
+        <div class="option"><a href="../html/foster.html"><button id="foster">I want to foster</button></a></div>
+        <div class="option"><a href="../html/turn in.html"><button id="turn-in">Turn in an animal</button></a></div>
+        <div id="shelter_log_in"><a href="../html/shelter_login.html">Shelters Log In</a></div>
+    </div>
+</body>
+</html>
