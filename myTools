@@ -1,0 +1,175 @@
+(function(w){
+    w.myTool = {
+        $: function(id) {
+            return typeof id === 'string' ? document.getElementById(id) : null;
+        },
+
+        hasClassName: function (obj, cs) {
+            var reg = new RegExp('\\b' + cs + '\\b');
+            return reg.test(obj.className);
+        },
+
+        addClassName: function (obj, cs) {
+            if(!this.hasClassName(obj,cs)){
+                obj.className += ' ' + cs;
+            }
+        },
+        
+        removeClassName: function (obj, cs) {
+            var reg = new RegExp('\\b' + cs + '\\b');
+            // delete class
+            obj.className = obj.className.replace(reg, '');
+        },
+        toggleClassName: function (obj, cs) {
+            if(this.hasClassName(obj,cs)){
+                // has, delete
+                this.removeClassName(obj,cs);
+            }else {
+                // doesn't have, add
+                this.addClassName(obj,cs);
+            };
+        },
+
+        scroll: function() {
+            if(window.pageYOffset !== null) {   //the newest web browser
+                return {
+                    "top": window.pageYOffset,
+                    "left": window.pageXOffset
+                };
+            }else if(document.compatMode === 'CSS1Compact') { //standard of W3C
+                return {
+                    "top": document.documentElement.scrollTop,
+                    "left": document.documentElement.scrollLeft
+                };
+            }else {
+                return {
+                    "top": document.body.scrollTop,
+                    "left": document.body.scrollLeft
+                };
+            };
+        },
+
+        client: function() {
+            if(window.innerWidth !== null) {   //the newest web browser
+                return {
+                    "width": window.innerWidth,
+                    "height": window.innerHeight
+                };
+            }else if(document.compatMode === 'CSS1Compact') { //standard of W3C
+                return {
+                    "width": document.documentElement.clientWidth,
+                    "height": document.documentElement.clientHeight
+                };
+            }else {
+                return {
+                    "width": document.body.clientWidth,
+                    "height": document.body.clientHeight
+                };
+            };
+        },
+
+        show: function(element){
+            element.style.display = 'block';
+        },
+
+        hide: function(element) {
+            element.style.display = 'none';
+        },
+
+        stopPropagation: function(event) {
+            if(event && event.stopPropagation) {
+                event.stopPropagation();
+            }else {
+                event.cancelBubble = true;
+            };
+        },
+
+        getSelectedText: function() {
+            var selectedText = '';
+            if(window.getSelection) {
+                selectedText = window.getSelection().toString();
+            }else {
+                selectedText = document.getSelection.createRange().text;
+            };
+        },
+
+        getStyleAttr: function(object, attr) {
+            if(object.currentStyle) {
+                return object.currentStyle[attr];
+            }else {
+                return window.getComputedStyle(object, null)[attr];
+            };
+        },  //get attribute's style in CSS
+
+        changeCssStyle: function(object, attr, value) {
+            object.style[attr] = value;
+        }, //change attribute's style in CSS
+
+
+        /**
+         * 
+         * @param {Object} object 
+         * @param {Object} json 
+         */
+        slowAnimation: function(object, json) {
+            clearInterval(object.timer);
+
+            var speed = 0, begin = 0, target = 0, flag = false; 
+
+            object.timer = setInterval(() => {
+                flag = true;
+                for (var key in json) {
+                    begin = parseInt(myTool.getStyleAttr(object, key)) || 0;
+                    target = parseInt(json[key]);
+
+                    speed = (target - begin) * 0.2;
+                    speed = (target > begin) ? Math.ceil(speed) : Math.floor(speed);
+
+                    object.style[key] = begin + speed + 'px';
+
+                    if(begin === target) {
+                        flag = false;
+                    };
+                };
+                if(flag) {
+                    clearInterval(object.timer);
+                }; 
+            }, 20);            
+        },
+        // example: slowAnimation(myTool.$('btn'), {'left': 300, 'top': 500, 'width': 600})
+
+
+        
+    };
+}) (window);
+
+
+
+
+
+function scroll() {
+    if(window.pageYOffset !== null) {   //the newest web browser
+        return {
+            "top": window.pageYOffset,
+            "left": window.pageXOffset
+        };
+    }else if(document.compatMode === 'CSS1Compact') { //standard of W3C
+        return {
+            "top": document.documentElement.scrollTop,
+            "left": document.documentElement.scrollLeft
+        };
+    }else {
+        return {
+            "top": document.body.scrollTop,
+            "left": document.body.scrollLeft
+        };
+    };
+};
+
+
+//can use like this:
+window.addEventListener('scroll', function(ev){
+    scroll().top;
+    scroll().left;
+})
+
