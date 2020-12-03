@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+
+:root {
+    --dark-blue: #6699CC; /*background & font*/
+    --login-color: #4197EE;
+    --blue:#67B0F8;  /*label chosen*/
+    --light-blue: #99CCFF;   /*label not chosen*/
+    --button-color: #FFCC99;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nerko One";
+}
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--dark-blue);
+    padding: 80px;
+    position: relative;
+}
+
+
+#title {
+    width: 60%;
+    height: 40%;
+    font-family: "Permanent Marker";
+    font-size: 80px;
+}
+
+#pic {
+    width: 30%;
+    height: 35%;
+    background: url(../icons/logo.png) no-repeat;
+    background-size: 100% auto;
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+}
+
+#navi {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    right: 10%;
+    top: 25%;
+}
+
+#navi .option button{
+    width: 100%;
+    border-radius: 15px;
+    margin: 20px;
+    font-size: 40px;
+    line-height: 150%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+}
+
+#navi .option button:hover {
+    background-color: var(--light-blue);
+    cursor: pointer;
+}
+
+#shelter_log_in {
+    margin: 25px;
+    font-size: 25px;
+}
+
