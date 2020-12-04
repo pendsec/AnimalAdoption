@@ -33,6 +33,7 @@ function constructQuery($queryString)
 	}
 }
 
+// function 1
 function createAnimal()
 {
 	try{
@@ -257,10 +258,33 @@ function getAnimalMedicalHistory()
 }
 
 // function 8
-function describeAnimal()
+function describeAnimal($animal_id)
 {
-	$sql = 'SELECT A.animal_id, Sp.species, Sp.breed, TIMESTAMPDIFF(YEAR, A.DOB, NOW()), A.sex, A.name as animal_name, A.availability, A.is_Neutered, L1.address as provider_address, L1.city as provider_city, L1.state as provider_state, L1.zip_code as provider_zip_code, P.provider_type, P.provider_id, L2.address as shelter_address, L2.city as shelter_city, L2.state as shelter_state, L2.zip_code as shelter_zip_code, S.name as shelter_name, S.shelter_id FROM animal A, provider P, location L1, location L2, shelter S, species Sp WHERE A.species_id=Sp.species_id AND A.provider_id=P.provider_id AND A.shelter_id=S.shelter_id AND L1.location_id=P.location_id AND L2.location_id=S.location_id ORDER BY A.animal_id;';
+	$sql = "SELECT A.animal_id, Sp.species, Sp.breed, TIMESTAMPDIFF(YEAR, A.DOB, NOW()), A.sex, A.name as animal_name, A.availability, A.is_Neutered, L1.address as provider_address, L1.city as provider_city, L1.state as provider_state, L1.zip_code as provider_zip_code, P.provider_type, P.provider_id, L2.address as shelter_address, L2.city as shelter_city, L2.state as shelter_state, L2.zip_code as shelter_zip_code, S.name as shelter_name, S.shelter_id
+		FROM animal A, provider P, location L1, location L2, shelter S, species Sp
+ WHERE A.species_id=Sp.species_id AND A.provider_id=P.provider_id AND A.shelter_id=S.shelter_id AND L1.location_id=P.location_id AND L2.location_id=S.location_id AND A.animal_id=$animal_id
+ ORDER BY A.animal_id;";
 	return constructQuery($sql);
 }
+
+// function 8
+function describeAnimalAll()
+{
+	$sql = "SELECT A.animal_id, Sp.species, Sp.breed, TIMESTAMPDIFF(YEAR, A.DOB, NOW()), A.sex, A.name as animal_name, A.availability, A.is_Neutered, L1.address as provider_address, L1.city as provider_city, L1.state as provider_state, L1.zip_code as provider_zip_code, P.provider_type, P.provider_id, L2.address as shelter_address, L2.city as shelter_city, L2.state as shelter_state, L2.zip_code as shelter_zip_code, S.name as shelter_name, S.shelter_id
+		FROM animal A, provider P, location L1, location L2, shelter S, species Sp
+ WHERE A.species_id=Sp.species_id AND A.provider_id=P.provider_id AND A.shelter_id=S.shelter_id AND L1.location_id=P.location_id AND L2.location_id=S.location_id
+ ORDER BY A.animal_id;";
+	return constructQuery($sql);
+}
+
+function desribeAnimalUnadopted()
+{
+	$sql = "SELECT A.animal_id, Sp.species, Sp.breed, TIMESTAMPDIFF(YEAR, A.DOB, NOW()), A.sex, A.name as animal_name, A.availability, A.is_Neutered, L1.address as provider_address, L1.city as provider_city, L1.state as provider_state, L1.zip_code as provider_zip_code, P.provider_type, P.provider_id, L2.address as shelter_address, L2.city as shelter_city, L2.state as shelter_state, L2.zip_code as shelter_zip_code, S.name as shelter_name, S.shelter_id
+		FROM animal A, provider P, location L1, location L2, shelter S, species Sp
+ WHERE A.species_id=Sp.species_id AND ((A.provider_id=P.provider_id AND L1.location_id=P.location_id) OR A.provider_id IS NULL) AND A.shelter_id=S.shelter_id AND L2.location_id=S.location_id
+ ORDER BY A.animal_id;";
+	return constructQuery($sql);
+}
+
 ?>
 
