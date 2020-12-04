@@ -20,6 +20,7 @@ function getPDO()
 // this code is repeated each time we do a query. I pulled it out into a function
 function constructQuery($queryString)
 {
+	global $username, $password, $host, $dbname;
 	try{
 		$pdo = getPDO();
 		$q = $pdo->query($queryString);
@@ -185,7 +186,7 @@ function getAnimalHistory()
 		$animal_id = $_POST['animal_id'];
 
 		// Check if date filter is set
-		if !(isset($_POST['date_from']) && isset($_POST['date_to']))
+		if (!(isset($_POST['date_from']) && isset($_POST['date_to'])))
 		{
 			// TODO: Data validation
 
@@ -222,7 +223,7 @@ function getAnimalMedicalHistory()
 		$animal_id = $_POST['animal_id'];
 
 		// Check if date filter is set
-		if !(isset($_POST['date_from']) && isset($_POST['date_to']))
+		if (!(isset($_POST['date_from']) && isset($_POST['date_to'])))
 		{
 			// TODO: Data validation
 
