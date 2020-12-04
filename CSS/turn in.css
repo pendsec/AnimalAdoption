@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+
+:root {
+    --dark-blue: #6699CC; /*background & font*/
+    --login-color: #4197EE;
+    --blue:#67B0F8;  /*label chosen*/
+    --light-blue: #99CCFF;   /*label not chosen*/
+    --button-color: #FFCC99;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nerko One";
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-blue);
+    padding: 70px;
+}
+
+#form {
+    width: 100%;
+    height: 100%;
+    padding: 20px 60px;
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 40px;
+}
+
+#form p{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#form  button, #submit{
+    width: 10%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    margin: 80px 150px 0 350px;
+
+}
+
+#form button:hover, #submit:hover {
+    background-color: #f3ae69;
+    cursor: pointer;
+}
+
+

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+
+:root {
+    --dark-blue: #6699CC; /*background & font*/
+    --login-color: #4197EE;
+    --blue:#67B0F8;  /*label chosen*/
+    --light-blue: #99CCFF;   /*label not chosen*/
+    --button-color: #FFCC99;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nerko One";
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-blue);
+    padding: 80px;
+    position: relative;
+}
+
+#title {
+    color: white;
+    font-size: 40px;
+}
+
+#content {
+    width: 85%;
+    height: 620px;
+    margin: 30px auto;
+    overflow-y: scroll;
+    background-color: white;
+    padding: 20px;
+}
+
+#content .back {
+    width: 90px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#content .back:hover {
+    background-color: #ccc;
+}
+
+#content .back span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../icons/arrow.png) no-repeat;
+    background-size: cover;
+    margin-right: 5px;
+}
+
+
