@@ -295,5 +295,16 @@ function describeAnimalUnadoptedAll()
 	return constructQuery($sql);
 }
 
-?>
+function animalInFoster($provider_id):
+{
+	$sql = "SELECT name FROM animal WHERE provider_id =$provider_id";
+	return constructQuery($sql);
+}
 
+function getOccupiedFoster():
+{
+	$sql = "SELECT p.name, p.phone, p.email, l.address, l.city, l.zip_code FROM provider p, location l WHERE p.location_id = l.location_id AND p.provider_type = 'Foster' AND p.provider_id in ( SELECT provider_id FROM animal);";
+	return constructQuery($sql);
+}
+
+?>
