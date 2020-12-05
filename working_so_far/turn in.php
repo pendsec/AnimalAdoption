@@ -21,7 +21,7 @@ $dbname = '431W_Final';
 </head>
 <body>
     <div id="form">
-        <form action="/insert_animal.php" method="POST">
+        <form action="insert_animal.php" method="POST">
             <p>
                 Animal's name: <input type="text" style="width:10%;height:30px" name="pet_name"><br>
                 Species of the animal: <input type="text" style="width:20%;height:30px" name="pet_species">

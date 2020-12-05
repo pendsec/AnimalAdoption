@@ -21,7 +21,7 @@ $dbname = '431W_Final';
 </head>
 <body>
     <div id="form">
-        <form action="/insert_provider.php" method="POST"> 
+        <form action="insert_provider.php" method="POST"> 
             First name: <input type="text" style="width:50%;;height:30px" name="firstname"><br>
             Last name: <input type="text" style="width:50%;height:30px" name="lastname"><br>
             Phone number: <input type="text" style="width:50%;height:30px" name="phone_number"><br>

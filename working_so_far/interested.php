@@ -68,10 +68,10 @@
 		<p></p>
 		<div id="btn">
 			<?php if ($_GET["availability"] == 1): ?>
-				<a href="../html/adoption.html"><button>Adopt!</button></a>
+				<a href="../adoption.php"><button>Adopt!</button></a>
 			<?php endif; ?>
-			<a href="medical_record.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>"><button>Medical records</button></a>
-			<a href="history.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>"><button>See history</button></a>
+			<a href="../medical_record.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>"><button>Medical records</button></a>
+			<a href="../history.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>"><button>See history</button></a>
 		</div>
 	</div>
 

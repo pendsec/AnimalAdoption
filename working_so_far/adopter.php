@@ -12,6 +12,12 @@ $q = getAnimals();
     <link rel="stylesheet" href="../CSS/adopter & foster.css">
 </head>
 <body>
+    <div id="navi">
+        <a href="turn in.php"><button>Add an animal</button></a>
+        <a href="employee manage.php"><button>Current employees</button></a>
+        <a href="foster manage.php"><button>Current fosters</button></a>
+        <div id="back"><a href="shelter_dashboard.html" style="color: black;">Back<span></span></a></div>
+	</div>
 <h1>All Animals On Record</h1>
      <table border=1 cellspacing=5 cellpadding=5>
         <thead>
