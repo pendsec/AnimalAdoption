@@ -24,7 +24,7 @@ $dbname = '431W_Final';
 <body>
     <div id="form">
         <form action="verify_login.php" method="POST">
-            Username: <input type="email" style="width:50%;height:30px" name="username"><br>
+            Username: <input type="text" style="width:50%;height:30px" name="username"><br>
             Password: <input type="text" style="width:50%;height:30px" name="password"><br>
             <input id="submit" type="submit">
         </form>
