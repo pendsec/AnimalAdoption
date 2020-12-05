@@ -15,7 +15,7 @@
                 <?php
                 include("functions.php");
                 function getLocationHistory($animalID){
-                    $sql = "SELECT date, address, city, state, zip_code FROM event_log e, location l WHERE (event_type='description' or event_type='adoption' or event_type='fostered') and e.location_id=l.location_id and animal_id=" . $animalID . ";";
+                    $sql = "SELECT date, address, city, state, zip_code FROM event_log e, location l WHERE (event_type='description' or event_type='adoption' or event_type='fostered') and e.location_id=l.location_id and animal_id=" . $animalID . " ORDER BY date DESC;";
                     return constructQuery($sql);
                 }
                 $q = getLocationHistory($_GET["animal_id"]);

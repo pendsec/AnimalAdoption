@@ -15,7 +15,7 @@
                 <?php
                 include("functions.php");
                 function getMedicalHistory($animalID){
-                    $sql = "SELECT date, description FROM event_log WHERE event_type='medical' AND animal_id=" . $animalID . ";";
+                    $sql = "SELECT date, description FROM event_log WHERE event_type='medical' AND animal_id=" . $animalID . " ORDER BY date DESC;";
                     return constructQuery($sql);
                 }
                 $q = getMedicalHistory($_GET["animal_id"]);
