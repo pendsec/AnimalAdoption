@@ -295,5 +295,11 @@ function describeAnimalUnadoptedAll()
 	return constructQuery($sql);
 }
 
+function getTitles()
+{
+	$sql = 'SELECT * FROM title;';
+	return constructQuery($sql);
+}
+
 ?>
 
