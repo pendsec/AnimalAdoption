@@ -23,7 +23,7 @@
 			$get_shelter_id = 'SELECT shelter_id FROM shelter WHERE name = "'.$_POST["shelter"] . '"';
 			$get_title_id = 'SELECT title_id FROM title WHERE name = "' . $_POST["title"] . '";';
 			try {
-				getPDO();
+				$conn = getPDO();
 				$shelter_id = $conn->query($get_shelter_id);
 				$shelter_id->setFetchMode(PDO::FETCH_ASSOC);
 				$title_id = $conn->query($get_title_id);
@@ -36,7 +36,7 @@
 		?>
 		<?php
 			} catch(PDOException $e) {
-				echo $sql . "<br>" . $e->getMessage();
+				echo $add_employee . "<br>" . $e->getMessage();
 			}
 			$conn = null;
 		?>
