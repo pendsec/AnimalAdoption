@@ -14,12 +14,12 @@
             <p>
             <?php
             include("functions.php");
-            function getMedicalHistory($animalID){
-                $sql = "SELECT date, description FROM event_log WHERE event_type='medical' AND animal_id=" . $animalID . ";";
+            function getMedicalHistory(){
+                $sql = "SELECT date, description FROM event_log WHERE event_type='medical' AND animal_id=" . $_GET['animalID'] . ";";
                 return constructQuery($sql);
             }
-            function getLocationHistory($animalID){
-                $sql = "SELECT date, address, city, state, zip_code FROM event_log e, location l WHERE (event_type='description' or event_type='adoption' or event_type='fostered') and e.location_id=l.location_id and animal_id=" . $animalID . ";";
+            function getLocationHistory(){
+                $sql = "SELECT date, address, city, state, zip_code FROM event_log e, location l WHERE (event_type='description' or event_type='adoption' or event_type='fostered') and e.location_id=l.location_id and animal_id=" . $_GET['animalID'] . ";";
                 return constructQuery($sql);
             }
             $q = getMedicalHistory();
