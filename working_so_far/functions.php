@@ -313,6 +313,12 @@ function getOccupiedFoster():
 	return constructQuery($sql);
 }
 
+function getAnimalsUnadopted()
+{
+       $sql = 'SELECT * FROM animal A, species S WHERE A.species_id=S.species_id AND A.availability=1;';
+       return constructQuery($sql);
+}
+
 
 ?>
 

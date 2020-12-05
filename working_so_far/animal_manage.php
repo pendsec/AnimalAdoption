@@ -1,18 +1,33 @@
 <?php
-include('functions.php');
-$q = getAnimalsUnadopted();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$username = 'root';
+$password = 'cmpsc431-mysql-root';
+$host = 'localhost';
+$dbname = '431W_Final';
 ?>
 
+<?php
+include('functions.php');
+$q = getAnimals();
+?>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, user-scalable=no">
-    <title>Current available animals for adoption</title>
-	<link rel="stylesheet" href="/CSS/adopter & foster.css?v=<?php echo time(); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal manage</title>
+	<link rel="stylesheet" href="/CSS/manage.css?v=<?php echo time(); ?>">
 </head>
 <body>
-<h1>Animals for Adoption</h1>
+<h1>All Animals On Record</h1>
+    <div id="navi">
+        <a href="turn in.php"><button>Add an animal</button></a>
+        <div id="back"><a href="homepage.php" style="color: black;">Back<span></span></a></div>
+	</div>
      <table border=1 cellspacing=5 cellpadding=5>
         <thead>
             <tr>
@@ -41,7 +56,5 @@ $q = getAnimalsUnadopted();
         </tbody>
     </table>
 
-    <script src="../JS/myTools.js"></script>
-    <script src="../JS/adopter & foster.js"></script>
 </body>
 </html>
