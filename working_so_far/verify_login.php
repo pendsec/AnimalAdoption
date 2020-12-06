@@ -20,19 +20,22 @@
     <body>
 		<p>
 		<?php 
-			$get_employee = 'SELECT id FROM employee WHERE user_name = "' . $_POST["username"] . '" AND password = "' . $_POST["password"] . '";';
+			$get_employee = 'SELECT employee_id FROM employee WHERE user_name = "' . $_POST["username"] . '" AND password = "' . $_POST["password"] . '" AND is_active=True;';
 			try {
 				$conn = getPDO();
 				$employee_id = $conn->query($get_employee);
-				if($employee_id->num_rows == 0)
+				if($employee_id->fetchColumn() == 0)
 				{
-					header("Location: https://cmpsc431-s3-g-8.vmhost.psu.edu/login.php"); 
-					exit();
+					?>
+					<meta http-equiv = "refresh" content = "0; url = login.php" />
+					<?php
 				}
 				else
 				{
-					header("Location: https://cmpsc431-s3-g-8.vmhost.psu.edu/dashboard.php"); 
-					exit();
+					?>
+					<meta http-equiv = "refresh" content = "0; url = dashboard.php" />
+					<?php
+
 				}
 			} catch(PDOException $e) {
 				echo $get_employee . "<br>" . $e->getMessage();

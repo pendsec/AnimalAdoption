@@ -1,23 +1,22 @@
 PAGES:
-	[ ] homepage MATT
-		[.] employee login CHINMAY
-			[ ] employee dashboard CHINMAY
-				[ ] animal manage AUSTIN
+	[X] homepage MATT
+		[X] employee login CHINMAY
+			[X] employee dashboard CHINMAY
+				[X] animal manage AUSTIN
 					[X] turn in
-						[ ] insert_animal.php
-				[.] employee manage CHINMAY
-					[.] show all employees
-					[.] remove
-					[.] add
-				[ ] foster manage: BEN
-					[ ] add foster
-					[ ] add remove foster
+						[X] insert_animal.php
+				[X] employee manage CHINMAY
+					[X] show all employees
+					[X] remove
+					[X] add
+				[X] foster manage: BEN
+					[X] add foster
 		[X] adopter --> show only animals for adoption AUSTIN
-			[ ] remove employee pages AUSTIN
-			[ ] adoption submit button --> insert_provider page YANTING
-			[ ] merge foster, carry argument AUSTIN
+			[X] remove employee pages AUSTIN
+			[X] adoption submit button --> insert_provider page AUSTIN
+			[X] merge foster, carry argument MATT
 			[X] medical and location records
 			[X] adoption.php
-				[ ] insert_provder.php YANTING
+				[X] insert_provder.php AUSTIN
 		[X] turn in animal
-			[ ] insert_animal.php YANTING
+			[X] insert_animal.php 

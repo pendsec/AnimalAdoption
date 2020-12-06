@@ -19,16 +19,22 @@
     </head>
     <body>
 		<p>
-		<?php 
-			$fire_employee = 'UPDATE employee active="False" WHERE employee_id = "'.$_POST["id"] . '";';
+		<?php
+			$fire_employee = 'UPDATE employee SET is_active=False WHERE employee_id = '. $_POST["id"] . ';';
 			try {
 				$conn = getPDO();
 				$conn->exec($fire_employee);
-				echo "Your information has been recorded!";
+				echo "The employee has been removed!";
+
+				$sql = 'SELECT * FROM employee WHERE employee_id = ' . $_POST["id"] . ';';
+				$q = $conn->query($sql);
+				$q->setFetchMode(PDO::FETCH_ASSOC);
+				$value =  $q->fetch();
 		?>
+		<meta http-equiv = "refresh" content = "0; url = employees.php" />
 		<?php
 			} catch(PDOException $e) {
-				echo $add_employee . "<br>" . $e->getMessage();
+				echo $fire_employee . "<br>" . $e->getMessage();
 			}
 			$conn = null;
 		?>

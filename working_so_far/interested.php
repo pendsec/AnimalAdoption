@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Current available animals for adoption</title>
-    <link rel="stylesheet" href="../CSS/interested.css">
+    <link rel="stylesheet" href="../../CSS/interested.css?v=<?php echo time(); ?>">
 </head>
 <body>
-                        
+        <div class="back"><a href="javascript:history.go(-1)" style="color: black;"><span></span>Back</a></div> 
 	<?php
 		$Aid = $_GET["animal_id"];
 		if ($_GET["availability"] == 1)
@@ -68,10 +68,11 @@
 		<p></p>
 		<div id="btn">
 			<?php if ($_GET["availability"] == 1): ?>
-				<a href="../adoption.php"><button>Adopt!</button></a>
+				<a href="../adoption.php?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>&amp;provider_type=Adopter"><button>Adopt!</button></a>
+				<a href="../adoption.php?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>&amp;provider_type=Foster"><button>Foster!</button</a>
 			<?php endif; ?>
 			<a href="../medical_record.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>"><button>Medical records</button></a>
-			<a href="../history.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>"><button>See history</button></a>
+			<a href="../history.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>"><button>See location history</button></a>
 		</div>
 	</div>
 

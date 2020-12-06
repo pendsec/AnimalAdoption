@@ -21,7 +21,7 @@ $titles = getTitles();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Registration Form</title>
+    <h1>Employee Registration Form</h1>
     <link rel="stylesheet" href="/CSS/adoption & fostering.css">
 </head>
 <body>
@@ -29,16 +29,16 @@ $titles = getTitles();
         <form action="insert_employee.php" method="POST">
             First name: <input type="text" style="width:50%;;height:30px" name="firstname"><br>
             Last name: <input type="text" style="width:50%;height:30px" name="lastname"><br>
-            <label for="shelters">Shelter:</label><br>
-            <select name="shelters" id="shelters" multiple>
+            <label for="shelter">Shelter:</label><br>
+            <select name="shelter" id="shelter" multiple>
                 <?php while ($row = $shelters->fetch()): ?>
                     <option><?php echo htmlspecialchars($row['name']) ?></option><br>
                 <?php endwhile; ?>
-            </select>
-            Username: <input type="email" style="width:50%;height:30px" name="username"><br>
+            </select><br>
+            Username: <input type="text" style="width:50%;height:30px" name="username"><br>
             Password: <input type="text" style="width:50%;height:30px" name="password"><br>
-            <label for="titles">Title:</label><br>
-            <select name="titles" id="titles" multiple>
+            <label for="title">Title:</label><br>
+            <select name="title" id="title" multiple>
                 <?php while ($row = $titles->fetch()): ?>
                     <option><?php echo htmlspecialchars($row['title']) ?></option><br>
                 <?php endwhile; ?>

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History</title>
-    <link rel="stylesheet" href="../CSS/history.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../CSS/history.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <div id="container">
-        <div id="title">History records for </div>
+        <div id="title">Location history records</div>
         <div id="content">
             <div class="back"><a href="javascript:history.go(-1)" style="color: black;"><span></span>Back</a></div>
             <p>

@@ -12,6 +12,7 @@ $q = getAnimalsUnadopted();
 	<link rel="stylesheet" href="/CSS/adopter & foster.css?v=<?php echo time(); ?>">
 </head>
 <body>
+<div class="back"><a href="javascript:history.go(-1)" style="color: black;"><span></span>Back</a></div>
 <h1>Animals for Adoption</h1>
      <table border=1 cellspacing=5 cellpadding=5>
         <thead>
