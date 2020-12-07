@@ -1,3 +1,15 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$username = 'root';
+$password = 'cmpsc431-mysql-root';
+$host = 'localhost';
+$dbname = '431W_Final';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +32,7 @@
                 }
                 $q = getMedicalHistory($_GET["animal_id"]);
                 ?>
-                <table border=1 cellspacing=5 cellpadding=5>
+                <table border=1 cellspacing=5 cellpadding=5 style="width: 100%; font-size: 1.5em;">
                     <thead>
                         <tr>
                             <th>Date</th>

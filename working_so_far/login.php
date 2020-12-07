@@ -19,13 +19,13 @@ $dbname = '431W_Final';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Login</title>
-    <link rel="stylesheet" href="/CSS/adoption & fostering.css">
+    <link rel="stylesheet" href="http://cmpsc431-s3-g-8.vmhost.psu.edu/CSS/adoption & fostering.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <div id="form">
         <form action="verify_login.php" method="POST">
             Username: <input type="text" style="width:50%;height:30px" name="username"><br>
-            Password: <input type="text" style="width:50%;height:30px" name="password"><br>
+            Password: <input type="password" style="width:50%;height:30px" name="password"><br>
             <input id="submit" type="submit">
         </form>
         <a href="javascript:history.go(-1)"><button id="cancel">Cancel</button></a>

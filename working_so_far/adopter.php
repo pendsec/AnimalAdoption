@@ -9,12 +9,12 @@ $q = getAnimalsUnadopted();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, user-scalable=no">
     <title>Current available animals for adoption</title>
-	<link rel="stylesheet" href="/CSS/adopter & foster.css?v=<?php echo time(); ?>">
+	<link rel="stylesheet" href="../CSS/adopter & foster.css?v=<?php echo time(); ?>">
 </head>
 <body>
-<div class="back"><a href="javascript:history.go(-1)" style="color: black;"><span></span>Back</a></div>
-<h1>Animals for Adoption</h1>
-     <table border=1 cellspacing=5 cellpadding=5>
+<h1 style="font-size: 3em;">Current Animals for Adoption / Fostering</h1>
+<div class="back"><a href="javascript:history.go(-1)" style="color: black;"><span></span>←Back</a></div>
+     <table border=1 cellspacing=5 cellpadding=5 style="width: 100%; font-size: 1.5em;">
         <thead>
             <tr>
                 <th>id</th>
@@ -22,7 +22,8 @@ $q = getAnimalsUnadopted();
                 <th>Name</th>
                 <th>Species</th>
                 <th>Breed</th>
-                <th>availability</th>
+                <th>Availability</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>
@@ -41,8 +42,5 @@ $q = getAnimalsUnadopted();
             <?php endwhile; ?>
         </tbody>
     </table>
-
-    <script src="../JS/myTools.js"></script>
-    <script src="../JS/adopter & foster.js"></script>
 </body>
 </html>

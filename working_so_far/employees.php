@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Current Employees</title>
-    <link rel="stylesheet" href="../CSS/interested.css">
+    <link rel="stylesheet" href="/CSS/manage.css?v=<?php echo time(); ?>">
 </head>
 <body>              
 	<?php
@@ -15,9 +15,14 @@
 		$q->setFetchMode(PDO::FETCH_ASSOC);
 	?>
 	<h1> Employee Management Page </h1><br>
-
-	<a href="create_employee.php"><button id="cancel">Create New Employee</button></a>
-	<table border=1 cellspacing=5 cellpadding=5>
+	<div id="navi">
+			<a href="create_employee.php"><button style="width: 80%;">Create New Employee</button></a>
+            <a href="animal_manage.php"><button style="width: 80%;">Animals</button></a>
+            <a href="foster.php"><button style="width: 80%;">Foster</button></a>
+            <div id="back"><a href="dashboard.php" style="color: black;">Back</a></div>
+        </div>
+	
+	<table border=1 cellspacing=5 cellpadding=5 style="width: 80%; font-size: 1.5em;">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -38,8 +43,5 @@
             <?php endwhile; ?>
 		</tbody>
 	</table>
-
-    <script src="../JS/myTools.js"></script>
-    <script src="../JS/interested.js"></script>
 </body>
 </html>

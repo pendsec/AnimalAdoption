@@ -17,7 +17,7 @@ $dbname = '431W_Final';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fostering Form</title>
-    <link rel="stylesheet" href="/CSS/adoption & fostering.css">
+    <link rel="stylesheet" href="http://cmpsc431-s3-g-8.vmhost.psu.edu/CSS/adoption & fostering.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <div id="form">

@@ -20,7 +20,7 @@
                 }
                 $q = getLocationHistory($_GET["animal_id"]);
                 ?>
-                <table border=1 cellspacing=5 cellpadding=5>
+                <table border=1 cellspacing=5 cellpadding=5 style="width: 100%; font-size: 1.5em;">
                     <thead>
                         <tr>
                             <th>Date</th>
