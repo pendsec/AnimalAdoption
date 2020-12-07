@@ -39,7 +39,7 @@ $dbname = '431W_Final';
 <body>
     <div id="form">
 		<?php $ptype = $_GET["provider_type"] ?>
-        <form action="../insert_provider.php" method="POST">
+        <form action="insert_provider.php" method="POST">
             First name: <input type="text" style="width:50%;;height:30px" name="firstname"><br>
             Last name: <input type="text" style="width:50%;height:30px" name="lastname"><br>
             Phone number: <input type="text" style="width:50%;height:30px" name="phone"><br>
