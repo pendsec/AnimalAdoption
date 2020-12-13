@@ -69,8 +69,8 @@
     <p></p>
     <div id="btn">
         <?php if ($_GET["availability"] == 1): ?>
-            <a href="../adoption.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>&amp;provider_type=Adopter"><button>Adopt!</button></a>
-            <a href="../adoption.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>&amp;provider_type=Foster"><button>Foster!</button></a>
+            <a href="../adoption.php?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>&amp;provider_type=Adopter"><button>Adopt!</button></a>
+            <a href="../adoption.php?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>&amp;provider_type=Foster"><button>Foster!</button></a>
         <?php endif; ?>
         <a href="../medical_record.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>"><button>Medical records</button></a>
         <a href="../history.php/?animal_id=<?php echo htmlspecialchars($row['animal_id']); ?>"><button>See location history</button></a>
